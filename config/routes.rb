@@ -12,8 +12,12 @@ match '/contact', to: 'static_pages#contact', via: 'get'
 
 #User Module
 match '/signup', to: 'users#new', via: 'get'
+match '/signin',  to: 'sessions#new',         via: 'get'
+match '/signout', to: 'sessions#destroy',     via: 'delete'
 
 resources :users
+
+resources :sessions, only: [:new, :create, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
